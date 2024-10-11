@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const dotenv = reequire("dotenv");
 const bodyparser = require("body-parser");
 const express = require("express");
-const postRoutes = require();
+const postRoutes = require('./routes/PostRoute');
 
 const app = express();
 dotenv.config();
@@ -12,7 +12,7 @@ app.use(bodyparser.json());
 
 // call the route
 
-app.post("/api/posts", postRoutes);
+app.use("/api/posts", postRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {
