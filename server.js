@@ -5,6 +5,7 @@ const express = require("express");
 const postRoutes = require();
 
 const app = express();
+dotenv.config();
 
 // for the middleware we use bodyparser
 app.use(bodyparser.json());
@@ -24,3 +25,9 @@ mongoose
   .catch((error) => {
     console.error("MongoDB connection err:", error);
   });
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
