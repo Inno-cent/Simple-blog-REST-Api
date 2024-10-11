@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const dotenv = reequire("dotenv");
+const dotenv = require("dotenv");
 const bodyparser = require("body-parser");
 const express = require("express");
 const postRoutes = require('./routes/PostRoute');
