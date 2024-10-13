@@ -60,14 +60,3 @@ exports.deletePost = async (req, res) => {
   }
 };
 
-exports.deletePosts = async (req, res) => {
-    try {
-      const deletedPost = POST.findByIdAndDelete(req.params.id);
-      if (!deletedPost)
-        return res.status(401).json({ message: "Post not found" });
-      res.json(deletedPost);
-    } catch (error) {
-      res.status(500).json({ error });
-    }
-  };
-  
