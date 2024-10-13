@@ -60,7 +60,7 @@ exports.deletePost = async (req, res) => {
   }
 };
 
-exports.deletePost = async (req, res) => {
+exports.deletePosts = async (req, res) => {
     try {
       const deletedPost = POST.findByIdAndDelete(req.params.id);
       if (!deletedPost)
