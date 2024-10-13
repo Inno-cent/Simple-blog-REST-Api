@@ -45,7 +45,7 @@ exports.updateBlog = async (req, res) => {
       return res.status(404).json({ message: "Post not found" });
     res.json(updatedPost);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({  err });
   }
 };
 
@@ -56,6 +56,18 @@ exports.deletePost = async (req, res) => {
       return res.status(401).json({ message: "Post not found" });
     res.json(deletedPost);
   } catch (error) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ error });
   }
 };
+
+exports.deletePost = async (req, res) => {
+    try {
+      const deletedPost = POST.findByIdAndDelete(req.params.id);
+      if (!deletedPost)
+        return res.status(401).json({ message: "Post not found" });
+      res.json(deletedPost);
+    } catch (error) {
+      res.status(500).json({ error });
+    }
+  };
+  
